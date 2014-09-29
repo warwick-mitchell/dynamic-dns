@@ -49,7 +49,7 @@ if ($curr_ip == $status[$user]) {
 $dnsname = $conf["users"][$user];
 $ns = $conf["config"]["nameserver"];
 $bindkey = $conf["config"]["bind_key"];
-$ph = popen("/usr/bin/nsupdate -k $bindkey $data", 'w');
+$ph = popen("/usr/bin/nsupdate -k $bindkey", 'w');
 if ($ph) {
 	fwrite($ph, "server $ns\n");
 	fwrite($ph, "update delete $dnsname. A\n");
